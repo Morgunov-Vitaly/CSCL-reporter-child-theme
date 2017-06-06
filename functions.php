@@ -13,19 +13,19 @@ if (strpos($_SERVER['REQUEST_URI'], "eval(") ||	strpos($_SERVER['REQUEST_URI'], 
 function true_disable_self_ping( &$links ) {
 	foreach ( $links as $l => $link )
 		if ( 0 === strpos( $link, get_option( 'home' ) ) )
- 			unset($links[$l]);
+			unset($links[$l]);
 }
- 
+
 add_action( 'pre_ping', 'true_disable_self_ping' );
 /* /Запрет пингбэков и трэкбэков на самого себя */
 
 /* меняю стандартное лого на странице регистрации */
 function loginLogo() {
-    echo '<style type="text/css">
+	echo '<style type="text/css">
         h1 a { background-image:url('.get_stylesheet_directory_uri().'/img/logoCSCbl.png) !important; }
     </style>';
 }
- 
+
 add_action('login_head', 'loginLogo');
 /* /меняю стандартное лого на странице регистрации */
 
@@ -37,7 +37,7 @@ function true_change_admin_footer () {
 	);
 	return implode( ' &bull; ', $footer_text);
 }
- 
+
 add_filter('admin_footer_text', 'true_change_admin_footer');
 /* Ставим ссылку на себя в футере в админке */
 
@@ -54,3 +54,18 @@ add_filter('upload_mimes', 'mv_myme_types', 1, 1);
 
 
 /*  /Расширяю список доступных для загрузки типов файлов  */
+
+
+/* Добавление шорткода [mv-current-username] отображающего LogIn/LogOut пользователя в систему reporter  */
+add_shortcode( 'mv-current-username' , 'mv_current_username' );
+
+function mv_current_username(){
+	$UsName =  (isset($_COOKIE['mv_cuc_user'])) ? $_COOKIE['mv_cuc_user'] : "LogIn" ;
+	If ($UsName == "LogIn"){
+		$LogInLink = "<a class='w-text-value popmake-login' href='#'><i class='fa fa-lock'></i> ". $UsName ."</a>";
+	} else {
+		$LogInLink = "<a class='w-text-value popmake-login' href='#'><i class='fa fa-unlock-alt'></i> " . $UsName . "</a>";
+	}
+	echo $LogInLink;
+}
+/* / Добавление шорткода [mv-current-username] отображающего LogIn/LogOut пользователя в систему reporter  */
