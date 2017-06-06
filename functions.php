@@ -57,14 +57,14 @@ add_filter('upload_mimes', 'mv_myme_types', 1, 1);
 
 
 /* Добавление шорткода [mv-current-username] отображающего LogIn/LogOut пользователя в систему reporter  */
-add_shortcode( 'mv-current-username' , 'mv_current_username' );
+add_shortcode( 'mv-login' , 'mv_LogIn' );
 
-function mv_current_username(){
+function mv_LogIn(){
 	$UsName =  (isset($_COOKIE['mv_cuc_user'])) ? $_COOKIE['mv_cuc_user'] : "LogIn" ;
 	If ($UsName == "LogIn"){
-		$LogInLink = "<a class='w-text-value popmake-login' href='#'><i class='fa fa-lock'></i> ". $UsName ."</a>";
+		$LogInLink = "<a class='w-text-value popmake-login mv-login' href='#'><i class='fa fa-lock'></i> ". $UsName ."</a>";
 	} else {
-		$LogInLink = "<a class='w-text-value popmake-login' href='#'><i class='fa fa-unlock-alt'></i> " . $UsName . "</a>";
+		$LogInLink = "<a class='w-text-value popmake-login mv-login' href='#'><i class='fa fa-unlock-alt'></i> " . $UsName . "</a>";
 	}
 	echo $LogInLink;
 }
