@@ -22,7 +22,7 @@ add_action( 'pre_ping', 'true_disable_self_ping' );
 /* меняю стандартное лого на странице регистрации */
 function loginLogo() {
 	echo '<style type="text/css">
-        h1 a { background-image:url('.get_stylesheet_directory_uri().'/img/logoCSCbl.png) !important; }
+        h1 a { background-image:url('.get_stylesheet_directory_uri().'/img/logoCSC.png) !important; }
     </style>';
 }
 

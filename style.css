@@ -15,3 +15,17 @@ Author URI: http://us-themes.com/
 .mv_icon_box { 
 	margin: 0 0 20px 0;
 }
+/* стили ссылки LogIn/LogOut */
+.w-text-value {
+	color: inherit;
+}
+
+/* класс объектов которые скрываются, пока нет токена */
+.mv_token_show {
+	display: none;
+}  
+
+/* класс объектов которые становятся видны, когда нет токена */
+.mv_notoken_show {
+	/* display: none; */
+}
