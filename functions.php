@@ -22,7 +22,29 @@ add_action( 'pre_ping', 'true_disable_self_ping' );
 /* меняю стандартное лого на странице регистрации */
 function loginLogo() {
 	echo '<style type="text/css">
-        h1 a { background-image:url('.get_stylesheet_directory_uri().'/img/logoCSC.png) !important; }
+        h1 a { background-image:url('.get_stylesheet_directory_uri().'/img/logoCSCw.png) !important; }
+		body {background: #f1f1f1 url(http://cscl-reporter.com/wp-content/uploads/2015/04/treugolnikus.jpg);}
+		.wp-core-ui .button-primary {
+		background: #29b28f;
+		border: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		color: #fff;
+		text-decoration: none; 
+		text-shadow: none;    
+}
+.login form {
+    margin-top: 20px;
+    margin-left: 0;
+    padding: 26px 24px 46px;
+    background: rgba(255, 255, 255, 0.27);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    border-radius: 5px;
+}
+.login label {
+    color: #c5c5c5;    
+}
     </style>';
 }
 
