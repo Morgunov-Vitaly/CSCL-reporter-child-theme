@@ -34,9 +34,10 @@ function loginLogo() {
 		text-shadow: none;    
 }
 .login form {
-    margin-top: 20px;
+    margin-top: 25px;
     margin-left: 0;
-    padding: 26px 24px 46px;
+    padding: 45px 45px 50px;
+
     background: rgba(255, 255, 255, 0.27);
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
     box-shadow: 0 1px 3px rgba(0,0,0,.13);
@@ -45,6 +46,19 @@ function loginLogo() {
 .login label {
     color: #c5c5c5;    
 }
+#login {
+    width: 360px;
+}
+.login #login_error, .login .message {
+    border-left: 5px solid #29b28f;
+    }
+#loginform input#wp-submit {
+    height: 35px;
+    line-height: 35px;
+    padding: 0px 35px;
+    font-size: 16px;
+}
+
     </style>';
 }
 
@@ -76,3 +90,11 @@ add_filter('upload_mimes', 'mv_myme_types', 1, 1);
 
 
 /*  /Расширяю список доступных для загрузки типов файлов  */
+
+/* Remove "Edit with Visual Composer" from WordPress Admin Bar */
+
+function vc_remove_wp_admin_bar_button() {
+    remove_action( 'admin_bar_menu', array( vc_frontend_editor(), 'adminBarEditLink' ), 1000 );
+}
+add_action( 'vc_after_init', 'vc_remove_wp_admin_bar_button' );
+/* /Remove "Edit with Visual Composer" from WordPress Admin Bar */
